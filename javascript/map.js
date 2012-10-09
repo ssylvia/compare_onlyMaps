@@ -136,49 +136,56 @@
       }
 	  
     }
-function buildLayersList(layers){
-        //layers  arg is  response.itemInfo.itemData.operationalLayers;
-        var layerInfos = [];
-        dojo.forEach(layers, function(mapLayer, index){
-          var layerInfo = {};
-          if (mapLayer.featureCollection && mapLayer.type !== "CSV") {
-            if (mapLayer.featureCollection.showLegend === true) {
-              dojo.forEach(mapLayer.featureCollection.layers, function(fcMapLayer){
-                if (fcMapLayer.showLegend !== false) {
+//build a list of layers to dispaly in the legend
+  function buildLayersList(layers){
+
+ //layers  arg is  response.itemInfo.itemData.operationalLayers;
+  var layerInfos = [];
+  dojo.forEach(layers, function (mapLayer, index) {
+      var layerInfo = {};
+      if (mapLayer.featureCollection && mapLayer.type !== "CSV") {
+        if (mapLayer.featureCollection.showLegend === true) {
+            dojo.forEach(mapLayer.featureCollection.layers, function (fcMapLayer) {
+              if (fcMapLayer.showLegend !== false) {
                   layerInfo = {
-                    "layer": fcMapLayer.layerObject,
-                    "title": mapLayer.title,
-                    "defaultSymbol": false
+                      "layer": fcMapLayer.layerObject,
+                      "title": mapLayer.title,
+                      "defaultSymbol": false
                   };
                   if (mapLayer.featureCollection.layers.length > 1) {
-                    layerInfo.title += " - " + fcMapLayer.layerDefinition.name;
+                      layerInfo.title += " - " + fcMapLayer.layerDefinition.name;
                   }
                   layerInfos.push(layerInfo);
-                }
-              });
-            }
-          } else if (mapLayer.showLegend !== false) {
-            layerInfo = {
-              "layer": mapLayer.layerObject,
-              "title": mapLayer.title,
-              "defaultSymbol": false
-            };
-            //does it have layers too? If so check to see if showLegend is false
-            if (mapLayer.layers) {
-              var hideLayers = dojo.map(dojo.filter(mapLayer.layers, function(lyr){
-                return (lyr.showLegend === false);
-              }), function(lyr){
-                return lyr.id
-              });
-              if (hideLayers.length) {
-                layerInfo.hideLayers = hideLayers;
               }
-            }
-            layerInfos.push(layerInfo);
+            });
           }
-        });
-        return layerInfos;
+      } else if (mapLayer.showLegend !== false && mapLayer.layerObject) {
+      var showDefaultSymbol = false;
+      if (mapLayer.layerObject.version < 10.1 && (mapLayer.layerObject instanceof esri.layers.ArcGISDynamicMapServiceLayer || mapLayer.layerObject instanceof esri.layers.ArcGISTiledMapServiceLayer)) {
+        showDefaultSymbol = true;
       }
+      layerInfo = {
+        "layer": mapLayer.layerObject,
+        "title": mapLayer.title,
+        "defaultSymbol": showDefaultSymbol
+      };
+        //does it have layers too? If so check to see if showLegend is false
+        if (mapLayer.layers) {
+            var hideLayers = dojo.map(dojo.filter(mapLayer.layers, function (lyr) {
+                return (lyr.showLegend === false);
+            }), function (lyr) {
+                return lyr.id;
+            });
+            if (hideLayers.length) {
+                layerInfo.hideLayers = hideLayers;
+            }
+        }
+        layerInfos.push(layerInfo);
+    }
+  });
+  return layerInfos;
+  }
+
     
      function patchID() {  //patch id manager for use in apps.arcgis.com
        esri.id._isIdProvider = function(server, resource) {

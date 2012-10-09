@@ -1,4 +1,4 @@
-﻿ 	  html,body {
+ 	  html,body {
       height:100%;
       width:100%;
       padding:0;
@@ -19,18 +19,19 @@
 	  font-weight:bold;
 	  text-decoration:none;
       }
-	  
+
 	  a:hover{
 	  text-decoration:underline;
 	  }
 
       #header {
+      display:none;
       height:190px;
       background:#444;
 	  color:#fff;
       margin:0;
       }
-	  
+
 	  #banner{
 	  height:120px;
 	  }
@@ -47,8 +48,8 @@
       font-size:20px;
 	  font-weight:bold;
       text-align:left;
-      white-space: nowrap;  
-      overflow: hidden;  
+      white-space: nowrap;
+      overflow: hidden;
       text-overflow: ellipsis;
       -o-text-overflow:ellipsis;
       }
@@ -59,7 +60,7 @@
 	  height:45px;
       overflow: hidden;
       }
-	  
+
 	  #controls{
 	  position:absolute;
 	  width:100%;
@@ -78,12 +79,12 @@
 	  -o-user-select: none;
 	  user-select: none;
 	  }
-	  
+
 	  #mapTitles{
 	  background-color:#444;
 	  height:45px;
 	  }
-	  
+
 	  .titleTab{
 	  padding:25px;
 	  padding-top:5px;
@@ -91,51 +92,51 @@
 	  font-family:Arial, Helvetica, sans-serif;
 	  font-weight:bold;
 	  }
-	  
+
 	  .titleCon{
 	  float:left;
 	  height:100%;
 	  border-left:1px solid #848484;
 	  }
-	  
+
 	  #titleCon0{
 	  border:none;
 	  }
-	  
+
 	  #titleCon2{
 	  float:right;
 	  margin-right:-1px;
 	  }
-	  
+
 	  .checkboxToggle{
 	  cursor:pointer;
 	  }
-	  
+
 	  .checkbox{
 	  background-image:url(../images/checked.png);
 	  background-repeat:no-repeat;
 	  height:15px;
 	  }
-	  
+
 	  .checked{
 	  background-image:url(../images/checked.png);
 	  }
-	  
+
 	  .unchecked{
 	  background-image:url(../images/unchecked.png);
 	  }
-	  	  
+
 	  #logoArea{
 	  float:right;
 	  padding-top:25px;
 	  padding-right:25px;
 	  text-align:right;
 	  }
-	  
+
 	  #social{
 	  margin-bottom:20px;
 	  }
-	  
+
 	  #msLink{
 	  color:#fff;
 	  font-family:Arial, Helvetica, sans-serif;
@@ -143,12 +144,12 @@
 	  font-size:13px;
 	  outline:none;
 	  }
-	  
+
 	  #logo{
 	  border:none;
 	  outline:none;
 	  }
-	  
+
 	  #logoImg{
 	  border:none;
 	  outline:none;
@@ -158,11 +159,11 @@
       text-decoration:none;
       color:#444;
       }
-	  
+
 	  .mapCon{
 	  overflow:hidden;
 	  }
-	  
+
 	  .legendCon{
 	  display:none;
 	  width:100%;
@@ -174,24 +175,24 @@
 	  overflow:auto;
 	  .position:relative;
 	  }
-	  
+
 	  .legend{
-	
+
 	  padding:25px;
 	  padding-top:0;
 	  padding-bottom:5px;
 	  }
-	  
+
 	  #legendCon0{
 	  border:none;
 	  }
-	  
+
 	  .map{
 	  width:100%;
 	  height:75%;
 	  border-left:1px solid #444;
 	  }
-	  
+
 	  .legToggle{
 	  position:absolute;
 	  padding:5px;
@@ -201,7 +202,7 @@
 	  z-index:100;
 	  cursor:pointer;
 	  }
-	  
+
 	  .desToggle{
 	  position:absolute;
 	  bottom:25%;
@@ -212,56 +213,56 @@
 	  z-index:100;
 	  cursor:pointer;
 	  }
-	  
+
 	  #mapDiv0{
 	  border:none;
 	  }
-	  
+
 	  .descriptionCon{
 	  width:100%;
 	  height:25%;
 	  border-left:1px solid #444;
 	  overflow:auto;
 	  }
-	  
+
 	  .description{
 	  padding:15px;
 	  }
-	  
+
 	  #discriptionCon0{
 	  border:none;
 	  }
-	  
+
 	  .mapTitle{
 	  font-family:Arial, Helvetica, sans-serif;
 	  }
-	  
+
 	  #timeCon{
 	  display:none;
 	  position:absolute;
-	  top:3%;	
+	  top:3%;
 	  z-index:2;
 	  }
-	
+
 	  #time{
 	  background:#444;
 	  }
-	
+
 	  #timeSliderLabel{
 	  color:#fff;
 	  text-align:center;
 	  padding:10px;
 	  font-size:16px;
 	  }
-	  
+
       .map .bingLogo-lg {
       left:18px !important;
       }
-	  
+
 	  g,v {
 	  cursor:pointer;
 	  }
-	  
+
 	  #loadingCon{
 	  position:absolute;
 	  z-index:99;
@@ -269,13 +270,13 @@
       top:40%;
 	  text-align:center;
 	  }
-	
+
 	  #loadingDialog{
 	  margin:auto;
 	  background-color:#dadada;
-	  width:300px	
+	  width:300px
 	  }
-		
+
 	  #loadingHeader{
 	  background-color:#444;
 	  color:#fff;
@@ -283,20 +284,20 @@
 	  padding-bottom:10px;
 	  width:300px;
 	  }
-		
+
 	  #loading{
 	  padding-top:10px;
 	  }
-		
+
 	  #loadingImg{
 	  margin-top:5px;
 	  padding-bottom:10px;
 	  }
-	  
+
 	  #timeSliderDivCon{
 	  margin-top:105px;
 	  }
-	  
+
 	  .medCell{
 	  width:25px;
 	  }
@@ -309,15 +310,15 @@
 	  #tsTmp{
 	  width:80%;
 	  }
-	  
+
 	  .dijitRuleMark{
 	  border:1px solid #dadada;
 	  }
-	  
+
 	  #mapDiv0_zoom_slider{
 	  display:none;
 	  }
-	  
+
 	  #mapDiv1_zoom_slider{
 	  display:none;
 	  }
